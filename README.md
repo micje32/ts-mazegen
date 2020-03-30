@@ -1,0 +1,2 @@
+# ts-labgen
+Labirynth generator.
