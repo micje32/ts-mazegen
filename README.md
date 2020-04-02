@@ -1,2 +1,2 @@
-# ts-labgen
-Labirynth generator.
+# ts-mazegen
+Random maze generator.
