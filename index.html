@@ -1,27 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
-<meta content="utf-8" http-equiv="encoding">
-<link rel="stylesheet" type="text/css" href="style.css">
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>TypeScript Maze Generator</title>
+    <style>
+      canvas {
+        background-color: antiquewhite;
+      }
+      .maze {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: 800px;
+        margin-bottom: 20px;
+        height: 55px;
+      }
+      button {
+        background-color: #4d4c4c;
+        border: none;
+        padding: 10px;
+        color: #fff;
+        font-size: 14px;
+        cursor: pointer;
+        width: 30%;
+        margin-left: 5px;
+        height: inherit;
+      }
+      button:first-child {
+        margin-left: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="maze">
+      <button id="maze">Generate Maze</button>
+    </div>
+    <canvas id="canvmaze"></canvas>
 
-<body>
-  <div>
-    <canvas></canvas>
-    <ul>
-      <li><label>Width:</label><input id=width type="text"/></li>
-      <li><label>Height:</label><input id=height type="text"/></li>
-      <li><label>Path Width:</label><input id=pathwidth type="text"/></li>
-      <li><label>Wall Width:</label><input id=wallwidth type="text"/></li>
-      <li><label>Outer Width:</label><input id=outerwidth type="text"/></li>
-      <li><label>Path Color:</label><input id=pathcolor type="text"/></li>
-      <li><label>Wall Color:</label><input id=wallcolor type="text"/></li>
-      <li><label>Seed:</label><input id=seed type="text"/></li>
-      <li><input id=randomseed type="button" value="Random Seed"/></li>
-    </ul>
-  </div>
-      <script src="./MazeRenderer.js"></script>
-</body>
-
+    <script>var exports = {"__esModule": true};</script>
+    <script src="src/Cell.js"></script>
+    <script src="src/Maze.js"></script>
+    <script src="src/Draw.js"></script>
+    <script src="src/Main.js"></script>
+  </body>
 </html>

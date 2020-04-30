@@ -60,4 +60,32 @@ class Cell {
             [this.y +1, this.x]
         ]
     }
+
+    getColor(): string {
+        let color: string
+        switch (this.colorValue) {
+            case BLACK:
+            color = BLACK_COLOR
+            break
+            case ROUTE:
+            color = WHITE_COLOR
+            break
+            case STARTER:
+            color = GREEN_COLOR
+            break
+            case END:
+            color = RED_COLOR
+            break
+            case PATH:
+            color = ORANGE_COLOR
+            break
+            case DFS_PATH:
+            color = BLUE_COLOR
+            break
+            default:
+            color = GRAY_COLOR
+            break
+        }
+        return color
+    }
 }
