@@ -60,7 +60,7 @@ class Maze {
             this.setUp()
         }
         this._context.clearRect(0, this._mzLen - 1, 0, this._mzLen - 1)
-        this.draw(10,20,10)
+        this.draw(10,10,10)
     }
     //drawing walls on canvas
     draw(numRows: number, numCols: number, cellLength: number) {

@@ -35,7 +35,7 @@ var Maze = /** @class */ (function () {
             this.setUp();
         }
         this._context.clearRect(0, this._mzLen - 1, 0, this._mzLen - 1);
-        this.draw(10, 20, 10);
+        this.draw(10, 10, 10);
     };
     //drawing walls on canvas
     Maze.prototype.draw = function (numRows, numCols, cellLength) {
