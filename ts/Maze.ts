@@ -1,4 +1,4 @@
-/// <reference path="Cell.ts"/>
+import { Cell, CellType } from "../ts/Cell.ts"
 
 interface MazeInterface {
     readonly width: number
@@ -7,7 +7,7 @@ interface MazeInterface {
     context: any
 }
 
-class Maze {
+export class Maze {
     data: Cell[][]
     _width: number
     _height: number
@@ -44,9 +44,9 @@ class Maze {
                     i===this._mzLen - 1 ||
                     (j===0 || j===this._mzLen -1)
                 ) {
-                    cell = new Cell(EDGE)
+                    cell = new Cell(CellType.EDGE)
                 } else {
-                    cell = new Cell(ROUTE)
+                    cell = new Cell(CellType.ROUTE)
                 }
 
                 cell.setPosition({ row: i, col: j})
@@ -76,6 +76,4 @@ class Maze {
             }
         }
     }
-
-    
 }

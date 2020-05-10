@@ -11,11 +11,37 @@
     <div class="maze">
       <button id="maze">Generate Maze</button>
     </div>
+    <div class="settings">
+      <ul>
+        <li>
+          <label for="wall">Wall color:</label><br>
+          <input type="color" id="wall" value="#ff0000">
+        </li>
+        <li>
+          <label for="wall">Path color:</label><br>
+          <input type="color" id="path" value="#ff0000">
+        </li>
+        <li>
+          <label for="wall">Edge color:</label><br>
+          <input type="color" id="edge" value="#ff0000">
+        </li>
+        <li>
+          <label for="wall">Start color:</label><br>
+          <input type="color" id="start" value="#ff0000">
+        </li>
+        <li>
+          <label for="wall">End color:</label><br>
+          <input type="color" id="end" value="#ff0000">
+        </li>
+        <li>
+          <label for="wall">Default color:</label><br>
+          <input type="color" id="Default" value="#ff0000">
+        </li>
+      </ul>
+    </div>
     <canvas id="canvmaze"></canvas>
     <script>var exports = {"__esModule": true};</script>
-    <script src="src/Cell.js"></script>
-    <script src="src/Maze.js"></script>
-    <script src="src/Draw.js"></script>
-    <script src="src/Main.js"></script>
+    <script src="dist/bundle.js"></script>
+
   </body>
 </html>

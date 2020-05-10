@@ -1,3 +1,7 @@
+import { Maze } from '../ts/Maze.ts'
+import { Settings } from '../ts/Settings.ts'
+
+
 export {}
 var genMaze: HTMLButtonElement = document.getElementById('maze') as HTMLButtonElement
 const _canvas: HTMLCanvasElement = document.getElementById('canvmaze') as HTMLCanvasElement
@@ -8,6 +12,7 @@ const _height = 500
 _canvas.width = _width
 _canvas.height = _height
 let nMaze: Maze
+let nSettings: Settings
 
 const config = {
     width: _width,
@@ -15,6 +20,7 @@ const config = {
     mazeLength: _mazeSize,
     context: _context
 }
+
 
 const mRender = () => {
     nMaze = new Maze(config)
