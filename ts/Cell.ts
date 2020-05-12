@@ -1,4 +1,6 @@
-import { Settings } from "../ts/Settings.ts"
+
+import { Settings } from "./Settings.ts"
+import { webconfig } from "./Main.ts"
 
 interface CellPosition {
     readonly row: number
@@ -15,7 +17,7 @@ export enum CellType {
 }
 
 export class Cell {
-    nSettings = new Settings
+    webconfig
     cellType: CellType
     rowPos: number
     colPos: number
@@ -56,21 +58,21 @@ export class Cell {
         let color: string
         switch (this.cellType) {
             case CellType.WALL:
-                color = this.nSettings._WALL_COLOR
+                color = webconfig.WALL_COLOR
             break
             case CellType.ROUTE:
-                color = this.nSettings._ROUTE_COLOR
+                color = webconfig.ROUTE_COLOR
             break
             case CellType.START:
-                color = this.nSettings._START_COLOR
+                color = webconfig.START_COLOR
             break
             case CellType.END:
-                color = this.nSettings._END_COLOR
+                color = webconfig.END_COLOR
             break
             case CellType.EDGE:
-                color = this.nSettings._EDGE_COLOR
+                color = webconfig.EDGE_COLOR
             default:
-                color = this.nSettings._DEF_COLOR
+                color = webconfig.DEF_COLOR
             break
         }
         return color

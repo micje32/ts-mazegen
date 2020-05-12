@@ -20,7 +20,7 @@ export class Maze {
     constructor({
         width = 500,
         height = 500,
-        mazeLength = 20,
+        mazeLength = 90,
         context
     }: MazeInterface) {
         this.data = []
@@ -54,13 +54,15 @@ export class Maze {
             }
         }
     }
+
     //render test
     render(): void {
+
         if(this.data.length === 0) {
             this.setUp()
         }
         this._context.clearRect(0, this._mzLen - 1, 0, this._mzLen - 1)
-        this.draw(10,10,10)
+        this.draw(40,40,10)
     }
     //drawing walls on canvas
     draw(numRows: number, numCols: number, cellLength: number) {
