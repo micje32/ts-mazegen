@@ -1,80 +1,100 @@
+import { Direction } from './Direction'
 
-import { Settings } from "./Settings.ts"
-import { webconfig } from "./Main.ts"
-
-interface CellPosition {
-    readonly row: number
-    readonly col: number
+export interface CellPosition {
+    x: number,
+    y: number
 }
 
-export enum CellType {
-    UNDEFINED,
-    START,
-    END,
-    ROUTE,
-    WALL,
-    EDGE
+
+export interface Walls {
+    up: boolean,
+    right: boolean,
+    down: boolean,
+    left: boolean
 }
 
 export class Cell {
-    webconfig
-    cellType: CellType
-    rowPos: number
-    colPos: number
-    x: number
-    y: number
-    bgColor: string
-    next: Cell | null
-    visited: boolean
+    _walls: Walls
+    _webconfig
+    _position: CellPosition
+    _bgColor: string
+    _visited: boolean
+    _cellSize: number
 
-    constructor(type:CellType) {
-        this.cellType = 0;
-        this.rowPos = 0;
-        this.colPos = 0;
-        this.x = 0;
-        this.y = 0;
-        this.next = null;
-        this.bgColor = "trans";
-        this.visited = false;
+    constructor(position: CellPosition, isVisited?: boolean, walls?: Walls) {
+        this._position = position,
+        this._visited = isVisited,
+        this._walls = walls
+            ? walls
+            : {
+                up: true,
+                right: true,
+                down: true,
+                left: true
+            }
+        this._cellSize = 10,
+        this._bgColor = "trans",
+        this._visited = false,
+        this._position = position
+    }
+
+    public copyCell(): Cell {
+        return new Cell(this._position, this._visited, this._walls)
+    }
+
+    cellPosition(): CellPosition {
+        return this._position
+    }
+
+    isVisited(): boolean {
+            return this._visited
+    }
+
+    walls(): Walls {
+        return this._walls
+    }
+
+    setVisited(): void {
+        this._visited = true
+    }
+
+    public breakWall(dir: Direction): void {
+        switch (dir) {
+            case "UP":
+                this._walls.up = false
+                break
+            case "RIGHT":
+                this._walls.right = false
+                break
+            case "DOWN":
+                this._walls.down = false
+                break
+            case "LEFT":
+                this._walls.left = false
+                break
+            default:
+                console.log('error')                                        
+        }
     }
 
     setPosition(position: CellPosition): void {
-        this.rowPos = position.row
-        this.colPos = position.col
-        this.x = position.col
-        this.y = position.row
+        position.x = position.x
+        position.y = position.y
     }
 
-    getEnv(): number[][] {
-        return [
-            [this.y -1, this.x],
-            [this.y, this.x -1],
-            [this.y, this.x +1],
-            [this.y +1, this.x]
-        ]
-    }
-
-    getColor(): string {
-        let color: string
-        switch (this.cellType) {
-            case CellType.WALL:
-                color = webconfig.WALL_COLOR
-            break
-            case CellType.ROUTE:
-                color = webconfig.ROUTE_COLOR
-            break
-            case CellType.START:
-                color = webconfig.START_COLOR
-            break
-            case CellType.END:
-                color = webconfig.END_COLOR
-            break
-            case CellType.EDGE:
-                color = webconfig.EDGE_COLOR
+    public getPosChange(dir: Direction): CellPosition {
+        const { x, y } = this._position
+        switch(dir) {
+            case "UP":
+                return { x, y: y - 1 }
+            case "RIGHT":
+                return { x: x + 1, y }
+            case "DOWN":
+                return { x, y: y + 1 }
+            case "LEFT":
+                return { x: x - 1, y }
             default:
-                color = webconfig.DEF_COLOR
-            break
+                throw new Error("invalid direction")
         }
-        return color
     }
 }

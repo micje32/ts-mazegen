@@ -14,28 +14,28 @@
     <div class="settings">
       <ul>
         <li>
+          <label for="mazesize">Maze size (10-100):</label>
+          <input type="number" id="mazesize" name="mazesize" min="10" max="100" value="30">
+        </li>
+        <li>
+          <label for="padding">Padding (2-20):</label>
+          <input type="number" id="padding" name="padding" min="2" max="20" value="10">
+        </li>
+        <li>
+          <label for="cellsize">Cell size (5-50):</label>
+          <input type="number" id="cellsize" name="cellsize" min="5" max="50" value="10">
+        </li>
+        <li>
+          <input type="checkbox" id="animate" name="animate">
+          <label for="animate"> Animate maze?</label><br>
+        </li>
+        <li>
           <label for="wall">Wall color:</label><br>
           <input type="color" id="wall" value="#ff0000">
         </li>
         <li>
-          <label for="path">Path color:</label><br>
-          <input type="color" id="path" value="#ff0000">
-        </li>
-        <li>
-          <label for="edge">Edge color:</label><br>
-          <input type="color" id="edge" value="#ff0000">
-        </li>
-        <li>
-          <label for="start">Start color:</label><br>
-          <input type="color" id="start" value="#ff0000">
-        </li>
-        <li>
-          <label for="en">End color:</label><br>
-          <input type="color" id="end" value="#ff0000">
-        </li>
-        <li>
-          <label for="default">Default color:</label><br>
-          <input type="color" id="default" value="#ff0000">
+          <label for="background">Background color:</label><br>
+          <input type="color" id="background" value="#00ff00">
         </li>
       </ul>
     </div>

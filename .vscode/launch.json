@@ -5,10 +5,10 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "firefox",
+            "type": "chrome",
             "request": "launch",
             "name": "Firefox through localhost",
-            "url": "file:///C:/Users/orka/Desktop/typescript-maze-generator-master/ts-mazegen/index.html",
+            "url": "file:///C:/Users/Delfin/Documents/WSEI/Projekty/ts-mazegen/index.html",
             "webRoot": "${workspaceFolder}"
         }
     ]
